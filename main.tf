@@ -7,6 +7,10 @@ resource "helm_release" "descheduler" {
   version    = var.helm_chart_version
   repository = var.helm_repo_url
 
+  values = [
+    data.utils_deep_merge_yaml.values[0].output
+  ]  
+  
   dynamic "set" {
     for_each = var.settings
     content {
