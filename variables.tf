@@ -51,3 +51,9 @@ variable "settings" {
   default     = {}
   description = "Additional settings which will be passed to the Helm chart values, see https://github.com/kubernetes-sigs/descheduler/tree/master/charts/descheduler"
 }
+
+variable "values" {
+  type        = string
+  default     = ""
+  description = "Additional values for cert manager helm chart. Values will be merged, in order, as Helm does with multiple -f options"
+}
